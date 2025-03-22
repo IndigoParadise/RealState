@@ -1,0 +1,5 @@
+spring:
+  application:
+    name : "RealState"
+  liquibase:
+    change-log: db.changelog/db.changelog-dev

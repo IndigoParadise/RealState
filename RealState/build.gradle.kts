@@ -1,10 +1,12 @@
 plugins {
-	kotlin("jvm") version "1.9.25"
-	kotlin("plugin.spring") version "1.9.25"
+	kotlin("jvm") version "2.1.20"
+	kotlin("plugin.spring") version "2.1.20"
 	war
 	id("org.springframework.boot") version "3.5.0-M3"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("org.graalvm.buildtools.native") version "0.10.6"
+	kotlin("plugin.jpa") version "2.1.20"
+	kotlin("plugin.allopen") version "2.1.20"
 }
 
 group = "com.refactorizando"
@@ -12,7 +14,7 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(23)
 	}
 }
 
@@ -27,7 +29,11 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+	implementation("org.springframework.data:spring-data-jpa:3.4.4")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	// https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
+	implementation("org.hibernate.orm:hibernate-core:6.6.11.Final")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.liquibase:liquibase-core")
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
